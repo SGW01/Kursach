@@ -85,6 +85,7 @@ public class NewInfo extends AppCompatActivity {
             double d = data[i][1];
             for (int k = 0; k < n; k++) {
                 dataTrack[i][k] = d - data[k][1];
+
             }
         }
         //LANGUAGE
@@ -92,6 +93,7 @@ public class NewInfo extends AppCompatActivity {
             double d = data[i][2];
             for (int k = 0; k < n; k++) {
                 dataLanguage[i][k] = d - data[k][2];
+
             }
         }
         //COLUMN_EDUCATION
@@ -99,6 +101,7 @@ public class NewInfo extends AppCompatActivity {
             double d = data[i][3];
             for (int k = 0; k < n; k++) {
                 dataEducation[i][k] = d - data[k][3];
+
             }
         }
         //   COLUMN_COMMAND
@@ -106,6 +109,7 @@ public class NewInfo extends AppCompatActivity {
             double d = data[i][4];
             for (int k = 0; k < n; k++) {
                 dataCommand[i][k] = d - data[k][4];
+
             }
         }
         // COLUMN_LEADERSHIP
@@ -113,6 +117,7 @@ public class NewInfo extends AppCompatActivity {
             double d = data[i][5];
             for (int k = 0; k < n; k++) {
                 dataLeader[i][k] = d - data[k][5];
+
             }
         }
         //COLUMN_DRIVER
@@ -137,6 +142,7 @@ public class NewInfo extends AppCompatActivity {
                     dataAge[i][j] = 1;
                 }
 
+
             }
         }
 
@@ -151,6 +157,7 @@ public class NewInfo extends AppCompatActivity {
                 } else if (dataTrack[i][j] > 3) {
                     dataTrack[i][j] = 1;
                 }
+
             }
         }
 
@@ -164,6 +171,7 @@ public class NewInfo extends AppCompatActivity {
                 } else if (dataLanguage[i][j] > 1) {
                     dataLanguage[i][j] = 1;
                 }
+
             }
         }
         //COLUMN_EDUCATION
@@ -174,6 +182,8 @@ public class NewInfo extends AppCompatActivity {
                 } else if (dataEducation[i][j] > 0) {
                     dataEducation[i][j] = 1;
                 }
+
+
             }
         }
         //   COLUMN_COMMAND
@@ -184,6 +194,7 @@ public class NewInfo extends AppCompatActivity {
                 } else if (dataCommand[i][j] > 0) {
                     dataCommand[i][j] = 1;
                 }
+
             }
         }
         // COLUMN_LEADERSHIP
@@ -194,6 +205,7 @@ public class NewInfo extends AppCompatActivity {
                 } else if (dataLeader[i][j] > 0) {
                     dataLeader[i][j] = 1;
                 }
+
             }
         }
         //COLUMN_DRIVER
@@ -215,13 +227,6 @@ public class NewInfo extends AppCompatActivity {
                 sumRange[i][j] = dataAge[i][j] * 0.07 + dataTrack[i][j] * 0.35 + dataLanguage[i][j] * 0.21 +
                         dataEducation[i][j] * 0.07 + dataCommand[i][j] * 0.17 + dataDriver[i][j] * 0.03 +
                         dataLeader[i][j] * 0.1;
-                /*Log.d("NewInfo", "sumRange[" + i + "]" + "[" + j + "] = " + dataAge[i][j] + " "
-                        + dataTrack[i][j] + " "
-                        + dataLanguage[i][j] + " "
-                        + dataEducation[i][j] + " "
-                        + dataCommand[i][j] + " "
-                        + dataDriver[i][j] + " "
-                        + dataLeader[i][j]);*/
             }
         }
         rerange3();
@@ -229,16 +234,23 @@ public class NewInfo extends AppCompatActivity {
 
     private void rerange3() {
         for (int i = 0; i < n; i++) {
-            fPlus[i] = 0;
+
             for (int j = 0; j < n; j++) {
                 fPlus[i] = fPlus[i] + sumRange[i][j];
             }
+            double k = 1.0 / (n - 1);
+            fPlus[i] = k * fPlus[i];
+            //  Log.d("NewInfo", "fPlus after  [" + i + "] = " + fPlus[i]);
         }
         for (int j = 0; j < n; j++) {
-            fMinus[j] = 0;
             for (int i = 0; i < n; i++) {
-                fPlus[j] = fPlus[j] + sumRange[i][j];
+                fMinus[j] = fMinus[j] + sumRange[i][j];
             }
+
+            double k = 1.0 / (n - 1);
+
+            fMinus[j] = k * fMinus[j];
+
         }
         rerange4();
     }
@@ -246,7 +258,7 @@ public class NewInfo extends AppCompatActivity {
     private void rerange4() {
         for (int i = 0; i < n; i++) {
             fFinal[i] = fPlus[i] - fMinus[i];
-            Log.d("NewInfo", "fFinal [" + i + "]" + fFinal[i]);
+            Log.d("NewInfo", "fFinal   [" + i + "] = " + fFinal[i]);
         }
         sortedFFinal = fFinal;
         Arrays.sort(sortedFFinal);
@@ -265,19 +277,10 @@ public class NewInfo extends AppCompatActivity {
             }
         }
 
-        if (fFinal[index] < 0.05 && fFinal[index] > -0.1) {
-            desicion = "Альтернативний кандидат";
-        }
-        if (fFinal[index] > 0.05) {
-            desicion = "Найкращий кандидат";
-        } else {
-            desicion = "Кандидат не відповідає вимогам";
-        }
-
         onScreen();
     }
 
     private void onScreen() {
-        textViewYourRangeNow.setText("Ваш оновлений рейтинг: " + rang + "Нове рішення: " + desicion);
+        textViewYourRangeNow.setText("Ваш оновлений рейтинг: " + (rang + 1));
     }
 }
