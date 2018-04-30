@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_start_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/buttonStartTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/buttonStartTestMarginBottom"
+        android:layout_marginEnd="@dimen/buttonStartTestMarginRight"
+        android:layout_marginLeft="@dimen/buttonStartTestMarginLeft"
+        android:layout_marginRight="@dimen/buttonStartTestMarginRight"
+        android:layout_marginStart="@dimen/buttonStartTestMarginLeft"
+        android:layout_marginTop="@dimen/buttonStartTestMarginTop"
+        android:text="@string/buttonStartTestText"
+        android:textSize="@dimen/buttonStartTestTextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTestYourself"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/textViewTestYourselfMarginRight"
+        android:layout_marginLeft="@dimen/textViewTestYourselfMarginLeft"
+        android:layout_marginRight="@dimen/textViewTestYourselfMarginRight"
+        android:layout_marginStart="@dimen/textViewTestYourselfMarginLeft"
+        android:layout_marginTop="@dimen/textViewTestYourselfMarginTop"
+        android:text="@string/textViewTestYourselfText"
+        android:textAllCaps="true"
+        android:textSize="@dimen/textViewTestYourselfTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_prof_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@+id/textViewEnterYourInfo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/textViewEnterYourInfoMarginBottom"
+        android:layout_marginEnd="@dimen/textViewEnterYourInfoMarginRight"
+        android:layout_marginLeft="@dimen/textViewEnterYourInfoMarginLeft"
+        android:layout_marginRight="@dimen/textViewEnterYourInfoMarginRight"
+        android:layout_marginStart="@dimen/textViewEnterYourInfoMarginLeft"
+        android:layout_marginTop="@dimen/textViewEnterYourInfoMarginTop"
+        android:text="@string/textViewEnterYourInfoText"
+        android:textSize="@dimen/textViewEnterYourInfoTextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.017" />
+
+    <EditText
+        android:id="@+id/trackRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/trackRecordMarginRight"
+        android:layout_marginLeft="@dimen/trackRecordMarginLeft"
+        android:layout_marginRight="@dimen/trackRecordMarginRight"
+        android:layout_marginStart="@dimen/trackRecordMarginLeft"
+        android:layout_marginTop="@dimen/trackRecordMarginTop"
+        android:hint="@string/trackRecordText"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCountForeignLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/textViewCountForeignLanguageMarginRight"
+        android:layout_marginLeft="@dimen/textViewCountForeignLanguageMarginLeft"
+        android:layout_marginRight="@dimen/textViewCountForeignLanguageMarginRight"
+        android:layout_marginStart="@dimen/textViewCountForeignLanguageMarginLeft"
+        android:layout_marginTop="@dimen/textViewCountForeignLanguageMarginTop"
+        android:paddingLeft="@dimen/textViewCountForeignLanguagePaddingLeft"
+        android:paddingStart="@dimen/textViewCountForeignLanguagePaddingLeft"
+        android:text="@string/textViewCountForeignLanguageText"
+        android:textSize="@dimen/textViewCountForeignLanguageTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextCountForeignLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/editTextCountForeignLanguageMarginRight"
+        android:layout_marginLeft="@dimen/editTextCountForeignLanguageMarginLeft"
+        android:layout_marginRight="@dimen/editTextCountForeignLanguageMarginRight"
+        android:layout_marginStart="@dimen/editTextCountForeignLanguageMarginLeft"
+        android:layout_marginTop="@dimen/editTextCountForeignLanguageMarginTop"
+        android:hint="@string/editTextCountForeignLanguageText"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDegree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/textViewDegreeMarginRight"
+        android:layout_marginLeft="@dimen/textViewDegreeMarginLeft"
+        android:layout_marginRight="@dimen/textViewDegreeMarginRight"
+        android:layout_marginStart="@dimen/textViewDegreeMarginLeft"
+        android:layout_marginTop="@dimen/textViewDegreeMarginTop"
+        android:text="@string/textViewDegreeText"
+        android:textSize="@dimen/textViewDegreeTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <RadioButton
+            android:id="@+id/highEducation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="288dp"
+            android:text="@string/highEducationText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/incompleteHigherEducation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="328dp"
+            android:text="@string/incompleteHigherEducationText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/noneOfEducation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="368dp"
+            android:text="@string/noneOfEducationText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/buttonGoToWorkExp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="444dp"
+        android:text="@string/buttonGoToWorkExpText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cl_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_info_about_candidate" />
+
+    <include layout="@layout/layout_prof_info" />
+
+    <include layout="@layout/layout_work_exp" />
+</android.support.constraint.ConstraintLayout>

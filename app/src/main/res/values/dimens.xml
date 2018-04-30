@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="buttonStartTestMarginBottom">8dp</dimen>
+    <dimen name="buttonStartTestMarginTop">8dp</dimen>
+    <dimen name="buttonStartTestMarginRight">8dp</dimen>
+    <dimen name="buttonStartTestMarginLeft">8dp</dimen>
+    <dimen name="buttonStartTestTextSize">25sp</dimen>
+
+    <dimen name="textViewTestYourselfMarginTop">120dp</dimen>
+    <dimen name="textViewTestYourselfMarginRight">8dp</dimen>
+    <dimen name="textViewTestYourselfMarginLeft">8dp</dimen>
+    <dimen name="textViewTestYourselfTextSize">28sp</dimen>
+
+    <dimen name="textViewEnterYourInfoMarginLeft">8dp</dimen>
+    <dimen name="textViewEnterYourInfoMarginRight">8dp</dimen>
+    <dimen name="textViewEnterYourInfoMarginTop">8dp</dimen>
+    <dimen name="textViewEnterYourInfoMarginBottom">8dp</dimen>
+    <dimen name="textViewEnterYourInfoTextSize">28sp</dimen>
+
+    <dimen name="nameMarginLeft">8dp</dimen>
+    <dimen name="nameMarginRight">8dp</dimen>
+    <dimen name="nameMarginTop">112dp</dimen>
+
+    <dimen name="surnameMarginLeft">8dp</dimen>
+    <dimen name="surnameMarginRight">8dp</dimen>
+    <dimen name="surnameMarginTop">184dp</dimen>
+
+    <dimen name="fathernameMarginLeft">8dp</dimen>
+    <dimen name="fathernameMarginRight">8dp</dimen>
+    <dimen name="fathernameMarginTop">248dp</dimen>
+
+    <dimen name="ageMarginLeft">8dp</dimen>
+    <dimen name="ageMarginRight">8dp</dimen>
+    <dimen name="ageMarginTop">260dp</dimen>
+
+    <dimen name="trackRecordMarginLeft">8dp</dimen>
+    <dimen name="trackRecordMarginTop">68dp</dimen>
+    <dimen name="trackRecordMarginRight">8dp</dimen>
+
+    <dimen name="textViewCountForeignLanguageMarginLeft">8dp</dimen>
+    <dimen name="textViewCountForeignLanguageMarginTop">128dp</dimen>
+    <dimen name="textViewCountForeignLanguageMarginRight">8dp</dimen>
+    <dimen name="textViewCountForeignLanguagePaddingLeft">8dp</dimen>
+    <dimen name="textViewCountForeignLanguageTextSize">20sp</dimen>
+
+    <dimen name="editTextCountForeignLanguageMarginLeft">8dp</dimen>
+    <dimen name="editTextCountForeignLanguageMarginRight">8dp</dimen>
+    <dimen name="editTextCountForeignLanguageMarginTop">192dp</dimen>
+
+    <dimen name="textViewDegreeMarginLeft">8dp</dimen>
+    <dimen name="textViewDegreeMarginRight">8dp</dimen>
+    <dimen name="textViewDegreeMarginTop">248dp</dimen>
+    <dimen name="textViewDegreeTextSize">20sp</dimen>
+
+    <dimen name="emailMarginTop">344dp</dimen>
+    <dimen name="emailMarginRight">8dp</dimen>
+    <dimen name="emailMarginLeft">8dp</dimen>
+
+
+</resources>

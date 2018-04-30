@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_info_about_candidate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible">
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/nameMarginRight"
+        android:layout_marginLeft="@dimen/nameMarginLeft"
+        android:layout_marginRight="@dimen/nameMarginRight"
+        android:layout_marginStart="@dimen/nameMarginLeft"
+        android:layout_marginTop="@dimen/nameMarginTop"
+        android:hint="@string/nameText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/surname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginEnd="@dimen/surnameMarginRight"
+        android:layout_marginLeft="@dimen/surnameMarginLeft"
+        android:layout_marginRight="@dimen/surnameMarginRight"
+        android:layout_marginStart="@dimen/surnameMarginLeft"
+        android:layout_marginTop="@dimen/surnameMarginTop"
+        android:hint="@string/surnameText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/ageMarginRight"
+        android:layout_marginLeft="@dimen/ageMarginLeft"
+        android:layout_marginRight="@dimen/ageMarginRight"
+        android:layout_marginStart="@dimen/ageMarginLeft"
+        android:layout_marginTop="@dimen/ageMarginTop"
+        android:hint="@string/ageText"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/emailMarginRight"
+        android:layout_marginLeft="@dimen/emailMarginLeft"
+        android:layout_marginRight="@dimen/emailMarginRight"
+        android:layout_marginStart="@dimen/emailMarginLeft"
+        android:layout_marginTop="@dimen/emailMarginTop"
+        android:hint="@string/emailText"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewEnterYourInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/textViewEnterYourInfoMarginBottom"
+        android:layout_marginEnd="@dimen/textViewEnterYourInfoMarginRight"
+        android:layout_marginLeft="@dimen/textViewEnterYourInfoMarginLeft"
+        android:layout_marginRight="@dimen/textViewEnterYourInfoMarginRight"
+        android:layout_marginStart="@dimen/textViewEnterYourInfoMarginLeft"
+        android:layout_marginTop="@dimen/textViewEnterYourInfoMarginTop"
+        android:text="@string/textViewEnterYourInfoText"
+        android:textSize="@dimen/textViewEnterYourInfoTextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.017" />
+
+    <Button
+        android:id="@+id/buttonGoToProfInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="444dp"
+        android:text="@string/buttonGoToProfInfoText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

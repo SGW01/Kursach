@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Kursach</string>
+
+    <string name="textViewTestYourselfText">Test yourself!</string>
+    <string name="buttonStartTestText">Start test</string>
+    <string name="textViewEnterYourInfoText">Enter next information:</string>
+    <string name="nameText">Enter your name</string>
+    <string name="surnameText">Enter your surname</string>
+    <string name="fathernameText">Enter your fathername</string>
+    <string name="ageText">Enter your age</string>
+    <string name="trackRecordText">Enter your track record</string>
+    <string name="textViewCountForeignLanguageText">Enter count of foreign languages, that you know:</string>
+    <string name="editTextCountForeignLanguageText">Enter count of languages</string>
+    <string name="textViewDegreeText">Check your degree:</string>
+    <string name="highEducationText">High education</string>
+    <string name="incompleteHigherEducationText">Incomplete higher education</string>
+    <string name="noneOfEducationText">None of education</string>
+    <string name="emailText">Enter your email</string>
+    <string name="expInCommandWorkText">Do you have experience in command work?</string>
+    <string name="expInLeadershipText">Do you have experience in leadership?</string>
+    <string name="driversLicenseText">Do you have driver\'s license?</string>
+    <string name="commandWorkYesText">Yes</string>
+    <string name="commandWorkNoText">No</string>
+    <string name="leadershipYesText">Yes</string>
+    <string name="leadershipNoText">No</string>
+    <string name="driverYesText">Yes</string>
+    <string name="driverNoText">No</string>
+    <string name="buttonGoToProfInfoText">Next</string>
+    <string name="buttonGoToWorkExpText">Next</string>
+    <string name="buttonGoToResultText">Result</string>
+
+</resources>
