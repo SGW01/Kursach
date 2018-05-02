@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dataBaseModule.saveToDB(this, name, surname, age, email, trackRecord, foreignLanguage, education,
                 commandWork, leadership, driver);
         SharedPreferences.Editor editor = mSettings.edit();
-        editor.putString(APP_PREFERENCES, name);
+        editor.putString(APP_PREFERENCES, surname);
         editor.apply();
     }
 

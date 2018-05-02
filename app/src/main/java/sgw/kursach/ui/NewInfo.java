@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,6 +67,7 @@ public class NewInfo extends AppCompatActivity {
         fMinus = new double[n];
         fPlus = new double[n];
         fFinal = new Double[n];
+        sortedFFinal=new Double[n];
         rerange();
 
     }
@@ -258,12 +260,14 @@ public class NewInfo extends AppCompatActivity {
     private void rerange4() {
         for (int i = 0; i < n; i++) {
             fFinal[i] = fPlus[i] - fMinus[i];
+            sortedFFinal[i] = fFinal[i];
             Log.d("NewInfo", "fFinal   [" + i + "] = " + fFinal[i]);
         }
-        sortedFFinal = fFinal;
-        Arrays.sort(sortedFFinal);
 
-        names = dataBaseModule.getNames(this);
+        Arrays.sort(sortedFFinal, Collections.reverseOrder());
+
+        names = dataBaseModule.getSurnames(this);
+
 
         for (int i = 0; i < n; i++) {
             if (name.equals(names[i])) {

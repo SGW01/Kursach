@@ -44,7 +44,7 @@ public class DataBaseModule {
     }
 
 
-    public int[] readFromDB(Context context, String name) {
+    public int[] readFromDB(Context context, String surname) {
         int[] data = new int[7];
 
         SQLiteDatabase database = new DBSQLiteHelper(context).getReadableDatabase();
@@ -58,7 +58,7 @@ public class DataBaseModule {
                 TablesPresenterClass.Kandidat.COLUMN_LEADERSHIP + ", " +
                 TablesPresenterClass.Kandidat.COLUMN_DRIVER + " " +
                 "from " + TablesPresenterClass.Kandidat.TABLE_NAME + " WHERE " +
-                TablesPresenterClass.Kandidat.COLUMN_NAME + " = ? ", new String[]{name});
+                TablesPresenterClass.Kandidat.COLUMN_SURNAME + " = ? ", new String[]{surname});
         cursor.moveToFirst();
         Log.d(TAG, String.valueOf(cursor.getCount()));
         data[0] = cursor.getInt(cursor.getColumnIndexOrThrow(TablesPresenterClass.Kandidat.COLUMN_AGE));
@@ -74,18 +74,19 @@ public class DataBaseModule {
 
     }
 
-    public String[] getNames(Context context) {
+    public String[] getSurnames(Context context) {
         String names[];
         SQLiteDatabase database = new DBSQLiteHelper(context).getReadableDatabase();
         Cursor cursor;
         cursor = database.rawQuery("select " +
-                TablesPresenterClass.Kandidat.COLUMN_NAME + " from " + TablesPresenterClass.Kandidat.TABLE_NAME, null);
+                TablesPresenterClass.Kandidat.COLUMN_SURNAME + " from " + TablesPresenterClass.Kandidat.TABLE_NAME, null);
         cursor.moveToFirst();
         names = new String[cursor.getCount()];
         count = cursor.getCount();
         Log.d(TAG, String.valueOf(cursor.getCount()));
         for (int i = 0; i < count; i++) {
-            names[i] = cursor.getString(cursor.getColumnIndexOrThrow(TablesPresenterClass.Kandidat.COLUMN_NAME));
+            names[i] = cursor.getString(cursor.getColumnIndexOrThrow(TablesPresenterClass.Kandidat.COLUMN_SURNAME));
+            cursor.moveToNext();
         }
         cursor.close();
         database.close();
