@@ -150,7 +150,7 @@
                     android:layout_marginRight="@dimen/hrLayoutTextViews"
                     android:layout_marginStart="@dimen/hrLayoutTextViews"
                     android:layout_marginTop="@dimen/hrLayoutTextViews"
-                    android:text=""
+                    android:text="Reliability"
                     android:textColor="@android:color/black"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
