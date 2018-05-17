@@ -57,5 +57,7 @@
     <dimen name="emailMarginRight">8dp</dimen>
     <dimen name="emailMarginLeft">8dp</dimen>
 
+    <dimen name="hrLayoutTextViews">24dp</dimen>
+    <dimen name="hrLayoutTextViewsTop1">85dp</dimen>
 
 </resources>
