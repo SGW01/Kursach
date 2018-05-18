@@ -326,6 +326,56 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/seekBarFrustration" />
 
+                <TextView
+                    android:id="@+id/textViewEfficiency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/hrLayoutTextViews"
+                    android:layout_marginLeft="@dimen/hrLayoutTextViews"
+                    android:layout_marginRight="@dimen/hrLayoutTextViews"
+                    android:layout_marginStart="@dimen/hrLayoutTextViews"
+                    android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:text="Efficiency"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/frameLayout5" />
+
+                <TextView
+                    android:id="@+id/seekResultEfficiency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toTopOf="@id/seekBarEfficiency"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <SeekBar
+                    android:id="@+id/seekBarEfficiency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/hrLayoutSeekBars"
+                    android:layout_marginLeft="@dimen/hrLayoutSeekBars"
+                    android:layout_marginRight="@dimen/hrLayoutSeekBars"
+                    android:layout_marginStart="@dimen/hrLayoutSeekBars"
+                    android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:max="100"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewEfficiency" />
+
+                <FrameLayout
+                    android:id="@+id/frameLayout6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/seekBarEfficiency" />
+
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </ScrollView>

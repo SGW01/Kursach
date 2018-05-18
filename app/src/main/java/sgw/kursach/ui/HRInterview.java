@@ -52,6 +52,14 @@ public class HRInterview extends Activity implements View.OnClickListener {
     @BindView(R.id.seekBarFrustration)
     SeekBar seekBarFrustration;
 
+    @BindView(R.id.seekBarEfficiency)
+    SeekBar seekBarEfficiency;
+
+    @BindView(R.id.seekResultEfficiency)
+    TextView seekResultEfficiency;
+
+    int expectation, initiative, motivation, flexibility, responsibility, frustration, efficiency;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +79,7 @@ public class HRInterview extends Activity implements View.OnClickListener {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekResultExpectation.setText(String.valueOf(progress));
+                expectation = progress;
             }
 
             @Override
@@ -88,6 +97,7 @@ public class HRInterview extends Activity implements View.OnClickListener {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekResultInitiative.setText(String.valueOf(progress));
+                initiative = progress;
             }
 
             @Override
@@ -104,6 +114,7 @@ public class HRInterview extends Activity implements View.OnClickListener {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekResultMotivation.setText(String.valueOf(progress));
+                motivation = progress;
             }
 
             @Override
@@ -120,6 +131,7 @@ public class HRInterview extends Activity implements View.OnClickListener {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekResultFlexibility.setText(String.valueOf(progress));
+                flexibility = progress;
             }
 
             @Override
@@ -137,6 +149,7 @@ public class HRInterview extends Activity implements View.OnClickListener {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekResultResponsibility.setText(String.valueOf(progress));
+                responsibility = progress;
             }
 
             @Override
@@ -154,6 +167,25 @@ public class HRInterview extends Activity implements View.OnClickListener {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekResultFrustration.setText(String.valueOf(progress));
+                frustration = progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        seekBarEfficiency.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                seekResultEfficiency.setText(String.valueOf(progress));
+                efficiency = progress;
             }
 
             @Override
