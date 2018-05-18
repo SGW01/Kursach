@@ -6,7 +6,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/enterInfo">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -143,6 +144,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/seekBarMotivation" />
 
                 <TextView
+                    android:id="@+id/textViewFlexibility"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/hrLayoutTextViews"
@@ -150,13 +152,44 @@
                     android:layout_marginRight="@dimen/hrLayoutTextViews"
                     android:layout_marginStart="@dimen/hrLayoutTextViews"
                     android:layout_marginTop="@dimen/hrLayoutTextViews"
-                    android:text="Reliability"
+                    android:text="Flexibility of Thinking"
                     android:textColor="@android:color/black"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/frameLayout2" />
+
+                <SeekBar
+                    android:id="@+id/seekBarFlexibility"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/hrLayoutTextViews"
+                    android:layout_marginLeft="@dimen/hrLayoutTextViews"
+                    android:layout_marginRight="@dimen/hrLayoutTextViews"
+                    android:layout_marginStart="@dimen/hrLayoutTextViews"
+                    android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewFlexibility" />
+
+                <FrameLayout
+                    android:id="@+id/frameLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/seekBarFlexibility" />
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/enterInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Information"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </android.support.constraint.ConstraintLayout>

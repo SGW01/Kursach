@@ -1,11 +1,13 @@
 package sgw.kursach.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Arrays;
@@ -20,7 +22,8 @@ public class NewInfo extends AppCompatActivity {
 
     @BindView(R.id.textViewYourRangeNow)
     TextView textViewYourRangeNow;
-
+    @BindView(R.id.hrInterview)
+    Button buttonHrInterview;
 
     public static final String APP_PREFERENCES = "mysettings";
     SharedPreferences mSettings;
@@ -67,9 +70,20 @@ public class NewInfo extends AppCompatActivity {
         fMinus = new double[n];
         fPlus = new double[n];
         fFinal = new Double[n];
-        sortedFFinal=new Double[n];
+        sortedFFinal = new Double[n];
         rerange();
 
+        buttonHrInterview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToHrInterview();
+            }
+        });
+    }
+
+    private void goToHrInterview() {
+        Intent intent = new Intent(this, HRInterview.class);
+        startActivity(intent);
     }
 
     private void rerange() {
