@@ -58,6 +58,9 @@
     <dimen name="emailMarginLeft">8dp</dimen>
 
     <dimen name="hrLayoutTextViews">24dp</dimen>
+    <dimen name="hrLayoutSeekBars">10dp</dimen>
+    <dimen name="hrLayoutButton">50dp</dimen>
     <dimen name="hrLayoutTextViewsTop1">85dp</dimen>
+
 
 </resources>

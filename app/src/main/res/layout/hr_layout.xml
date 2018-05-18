@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/enterInfo">
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,21 +50,32 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/seekResultExpectation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toTopOf="@id/seekBarExpectation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
                 <SeekBar
                     android:id="@+id/seekBarExpectation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/hrLayoutTextViews"
-                    android:layout_marginLeft="@dimen/hrLayoutTextViews"
-                    android:layout_marginStart="@dimen/hrLayoutTextViews"
+                    android:layout_marginEnd="@dimen/hrLayoutSeekBars"
+                    android:layout_marginLeft="@dimen/hrLayoutSeekBars"
+                    android:layout_marginRight="@dimen/hrLayoutSeekBars"
+                    android:layout_marginStart="@dimen/hrLayoutSeekBars"
                     android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:max="100"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewExpectation" />
 
                 <TextView
-                    android:id="@+id/textViewLoyalty"
+                    android:id="@+id/textViewInitiative"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/hrLayoutTextViews"
@@ -70,7 +83,7 @@
                     android:layout_marginRight="@dimen/hrLayoutTextViews"
                     android:layout_marginStart="@dimen/hrLayoutTextViews"
                     android:layout_marginTop="@dimen/hrLayoutTextViews"
-                    android:text="Loyalty to the profession"
+                    android:text="Initiative"
                     android:textColor="@android:color/black"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -78,19 +91,29 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
+                <TextView
+                    android:id="@+id/seekResultInitiative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toTopOf="@id/seekBarInitiative"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
                 <SeekBar
-                    android:id="@+id/seekBarLoyalty"
+                    android:id="@+id/seekBarInitiative"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/hrLayoutTextViews"
-                    android:layout_marginLeft="@dimen/hrLayoutTextViews"
-                    android:layout_marginRight="@dimen/hrLayoutTextViews"
-                    android:layout_marginStart="@dimen/hrLayoutTextViews"
+                    android:layout_marginEnd="@dimen/hrLayoutSeekBars"
+                    android:layout_marginLeft="@dimen/hrLayoutSeekBars"
+                    android:layout_marginRight="@dimen/hrLayoutSeekBars"
+                    android:layout_marginStart="@dimen/hrLayoutSeekBars"
                     android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:max="100"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewLoyalty" />
+                    app:layout_constraintTop_toBottomOf="@+id/textViewInitiative" />
 
                 <FrameLayout
                     android:id="@+id/frameLayout1"
@@ -101,7 +124,7 @@
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/seekBarLoyalty" />
+                    app:layout_constraintTop_toBottomOf="@+id/seekBarInitiative" />
 
                 <TextView
                     android:id="@+id/textViewMotivation"
@@ -119,15 +142,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/frameLayout1" />
 
+                <TextView
+                    android:id="@+id/seekResultMotivation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toTopOf="@id/seekBarMotivation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
                 <SeekBar
                     android:id="@+id/seekBarMotivation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/hrLayoutTextViews"
-                    android:layout_marginLeft="@dimen/hrLayoutTextViews"
-                    android:layout_marginRight="@dimen/hrLayoutTextViews"
-                    android:layout_marginStart="@dimen/hrLayoutTextViews"
+                    android:layout_marginEnd="@dimen/hrLayoutSeekBars"
+                    android:layout_marginLeft="@dimen/hrLayoutSeekBars"
+                    android:layout_marginRight="@dimen/hrLayoutSeekBars"
+                    android:layout_marginStart="@dimen/hrLayoutSeekBars"
                     android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:max="100"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewMotivation" />
@@ -159,15 +192,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/frameLayout2" />
 
+                <TextView
+                    android:id="@+id/seekResultFlexibility"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toTopOf="@id/seekBarFlexibility"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
                 <SeekBar
                     android:id="@+id/seekBarFlexibility"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/hrLayoutTextViews"
-                    android:layout_marginLeft="@dimen/hrLayoutTextViews"
-                    android:layout_marginRight="@dimen/hrLayoutTextViews"
-                    android:layout_marginStart="@dimen/hrLayoutTextViews"
+                    android:layout_marginEnd="@dimen/hrLayoutSeekBars"
+                    android:layout_marginLeft="@dimen/hrLayoutSeekBars"
+                    android:layout_marginRight="@dimen/hrLayoutSeekBars"
+                    android:layout_marginStart="@dimen/hrLayoutSeekBars"
                     android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:max="100"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewFlexibility" />
@@ -182,6 +225,107 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/seekBarFlexibility" />
+
+                <TextView
+                    android:id="@+id/textViewResponsibility"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/hrLayoutTextViews"
+                    android:layout_marginLeft="@dimen/hrLayoutTextViews"
+                    android:layout_marginRight="@dimen/hrLayoutTextViews"
+                    android:layout_marginStart="@dimen/hrLayoutTextViews"
+                    android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:text="Responsibility"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/frameLayout3" />
+
+                <TextView
+                    android:id="@+id/seekResultResponsibility"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toTopOf="@id/seekBarResponsibility"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <SeekBar
+                    android:id="@+id/seekBarResponsibility"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/hrLayoutSeekBars"
+                    android:layout_marginLeft="@dimen/hrLayoutSeekBars"
+                    android:layout_marginRight="@dimen/hrLayoutSeekBars"
+                    android:layout_marginStart="@dimen/hrLayoutSeekBars"
+                    android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:max="100"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewResponsibility" />
+
+                <FrameLayout
+                    android:id="@+id/frameLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/seekBarResponsibility" />
+
+                <TextView
+                    android:id="@+id/textViewFrustration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/hrLayoutTextViews"
+                    android:layout_marginLeft="@dimen/hrLayoutTextViews"
+                    android:layout_marginRight="@dimen/hrLayoutTextViews"
+                    android:layout_marginStart="@dimen/hrLayoutTextViews"
+                    android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:text="Resistance to frustration"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/frameLayout4" />
+
+                <TextView
+                    android:id="@+id/seekResultFrustration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toTopOf="@id/seekBarFrustration"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <SeekBar
+                    android:id="@+id/seekBarFrustration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/hrLayoutSeekBars"
+                    android:layout_marginLeft="@dimen/hrLayoutSeekBars"
+                    android:layout_marginRight="@dimen/hrLayoutSeekBars"
+                    android:layout_marginStart="@dimen/hrLayoutSeekBars"
+                    android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:max="100"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewFrustration" />
+
+                <FrameLayout
+                    android:id="@+id/frameLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/hrLayoutTextViews"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/seekBarFrustration" />
+
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
@@ -190,6 +334,5 @@
         android:id="@+id/enterInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter Information"
-        app:layout_constraintBottom_toBottomOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        android:text="Enter Information" />
+</LinearLayout>
