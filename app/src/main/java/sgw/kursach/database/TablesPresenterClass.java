@@ -8,7 +8,7 @@ public class TablesPresenterClass {
 
     }
 
-    public static class Kandidat implements BaseColumns {
+    public static class Candidate implements BaseColumns {
         public static final String TABLE_NAME = "candidate";
 
         public static final String COLUMN_NAME = "name";
@@ -24,6 +24,19 @@ public class TablesPresenterClass {
         public static final String COLUMN_LEADERSHIP = "leadership";
         public static final String COLUMN_DRIVER = "driver";
 
+        public static final String IS_APPROPRIATE_AFTER_CV = "appropriateaftercv";
+
+        public static final String COLUMN_RANGING_AFTER_CV = "rangingaftercv";
+
+        public static final String COLUMN_RANGING_AFTER_HR = "rangingafterhr";
+
+        public static final String COLUMN_EXPECTATION = "expectation";
+        public static final String COLUMN_INITIATIVE = "initiative";
+        public static final String COLUMN_MOTIVATION = "motivation";
+        public static final String COLUMN_FLEXIBILITY = "flexibility";
+        public static final String COLUMN_RESPONSIBILITY = "responsibility";
+        public static final String COLUMN_FRUSTRATION = "frustration";
+        public static final String COLUMN_EFFICIENCY = "efficiency";
 
 
         public static final String CREATE_TABLE = "create table "
@@ -38,32 +51,17 @@ public class TablesPresenterClass {
                 + COLUMN_EDUCATION + " INTEGER NOT NULL, "
                 + COLUMN_COMMAND + " INTEGER NOT NULL, "
                 + COLUMN_LEADERSHIP + " INTEGER NOT NULL, "
-                + COLUMN_DRIVER + " INTEGER NOT NULL)";
-    }
-
-    public static class Ocinka implements BaseColumns {
-        public static final String TABLE_NAME = "ocinka";
-        public static final String COLUMN_BAL_AGE = "bal_age";
-        public static final String COLUMN_BAL_STAZH = "bal_stazh";
-        public static final String COLUMN_BAL_NAYAVNVO = "bal_nayavn_vo";
-        public static final String COLUMN_BAL_NAYAVNVP = "bal_nayavn_vp";
-        public static final String COLUMN_BAL_NAYAVNDZ = "bal_nayavn_dz";
-        public static final String COLUMN_BAL_NAYAVNDK = "bal_nayavn_dk";
-        public static final String COLUMN_BAL_NAYAVNDV = "bal_nayavn_dv";
-        public static final String COLUMN_BAL_KILKINM = "bal_kilk_inm";
-
-
-        public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " +
-                TABLE_NAME + " (" +
-                _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_BAL_AGE + " INTEGER, " +
-                COLUMN_BAL_STAZH + " INTEGER, " +
-                COLUMN_BAL_NAYAVNVO + " INTEGER, " +
-                COLUMN_BAL_NAYAVNVP + " INTEGER, " +
-                COLUMN_BAL_NAYAVNDZ + " INTEGER, " +
-                COLUMN_BAL_NAYAVNDK + " INTEGER, " +
-                COLUMN_BAL_NAYAVNDV + " INTEGER, " +
-                COLUMN_BAL_KILKINM + " INTEGER" + ")";
+                + COLUMN_DRIVER + " INTEGER NOT NULL, "
+                + COLUMN_EXPECTATION + " INTEGER, "
+                + COLUMN_INITIATIVE + " INTEGER, "
+                + COLUMN_MOTIVATION + " INTEGER, "
+                + COLUMN_FLEXIBILITY + " INTEGER, "
+                + COLUMN_RESPONSIBILITY + " INTEGER, "
+                + COLUMN_FRUSTRATION + " INTEGER, "
+                + COLUMN_EFFICIENCY + " INTEGER, "
+                + COLUMN_RANGING_AFTER_CV + " INTEGER, "
+                + COLUMN_RANGING_AFTER_HR + " INTEGER, "
+                + IS_APPROPRIATE_AFTER_CV + " INTEGER)";
     }
 
 }

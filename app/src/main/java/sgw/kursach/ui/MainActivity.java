@@ -101,6 +101,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String APP_PREFERENCES = "mysettings";
     SharedPreferences mSettings;
 
+    public static final int COUNT_OF_CANDIDATE = 8;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,6 +114,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonGoToWorkExp.setOnClickListener(this);
 
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+
+        if (dataBaseModule.getDBSize(this) > COUNT_OF_CANDIDATE) {
+            Intent intent = new Intent(this, HRInterview.class);
+            startActivity(intent);
+        }
 
     }
 

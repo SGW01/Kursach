@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import sgw.kursach.R;
+import sgw.kursach.database.DataBaseModule;
 
 public class HRInterview extends Activity implements View.OnClickListener {
 
@@ -58,8 +60,18 @@ public class HRInterview extends Activity implements View.OnClickListener {
     @BindView(R.id.seekResultEfficiency)
     TextView seekResultEfficiency;
 
+    @BindView(R.id.textViewAssurance)
+    TextView textViewAssurance;
+
+    @BindView(R.id.candidateSurname)
+    EditText candidateSurname;
+
     int expectation, initiative, motivation, flexibility, responsibility, frustration, efficiency;
 
+    public static final int ASSURANCE = 8;
+    public static final int MAX_ASSURANCE = 10;
+
+    DataBaseModule dataBaseModule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +80,10 @@ public class HRInterview extends Activity implements View.OnClickListener {
         ButterKnife.bind(this);
 
         enterInfo.setOnClickListener(this);
+
+        dataBaseModule = new DataBaseModule();
+
+        textViewAssurance.setText(ASSURANCE + "/" + MAX_ASSURANCE);
 
         initializeSeekBars();
 
@@ -202,6 +218,7 @@ public class HRInterview extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
+        String surname = candidateSurname.getText().toString();
+        dataBaseModule.updateDB(this, surname,  expectation, initiative, motivation, flexibility, responsibility, frustration, efficiency);
     }
 }

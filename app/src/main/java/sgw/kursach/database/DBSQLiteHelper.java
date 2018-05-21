@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBSQLiteHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "db_kursach";
+    public static final String DATABASE_NAME = "db_diploma";
 
     public DBSQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -14,14 +14,12 @@ public class DBSQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(TablesPresenterClass.Kandidat.CREATE_TABLE);
-        sqLiteDatabase.execSQL(TablesPresenterClass.Ocinka.CREATE_TABLE);
+        sqLiteDatabase.execSQL(TablesPresenterClass.Candidate.CREATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TablesPresenterClass.Kandidat.TABLE_NAME);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TablesPresenterClass.Ocinka.TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TablesPresenterClass.Candidate.TABLE_NAME);
         onCreate(sqLiteDatabase);
 
     }
