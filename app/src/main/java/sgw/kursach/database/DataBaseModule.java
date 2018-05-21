@@ -133,10 +133,10 @@ public class DataBaseModule {
         return data;
     }
 
-    public boolean deleteFromDB(Context context, String name) {
+    public boolean deleteFromDB(Context context, String surname) {
         SQLiteDatabase database = new DBSQLiteHelper(context).getWritableDatabase();
         long rowId = database.delete(TablesPresenterClass.Candidate.TABLE_NAME,
-                TablesPresenterClass.Candidate.COLUMN_NAME + " = ? ", new String[]{name});
+                TablesPresenterClass.Candidate.COLUMN_SURNAME + " = ? ", new String[]{surname});
         Log.d(TAG, "The deleted row count is " + rowId);
         database.close();
         return true;
@@ -161,6 +161,21 @@ public class DataBaseModule {
                 contentValues, TablesPresenterClass.Candidate.COLUMN_SURNAME + " = ? ", new String[]{surname});
         Log.d(TAG, "updated column is " + rowId);
         database.close();
+        return true;
+    }
+
+    public boolean updateRangCV(Context context, double[] fFinal) {
+        SQLiteDatabase database = new DBSQLiteHelper(context).getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        for (double aFFinal : fFinal)
+            contentValues.put(TablesPresenterClass.Candidate.COLUMN_RANGING_AFTER_CV, aFFinal);
+
+        database.update(TablesPresenterClass.Candidate.TABLE_NAME, contentValues, null, null);
+
+        database.close();
+
         return true;
     }
 }
