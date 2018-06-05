@@ -3,6 +3,7 @@ package sgw.kursach.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -28,17 +29,20 @@ public class Results extends AppCompatActivity implements View.OnClickListener {
 
     private final static String TAG = Results.class.getSimpleName();
 
+    public static final int NUM_CANDIDATE = 5;
+
     public static final String APP_PREFERENCES = "mysettings";
     SharedPreferences mSettings;
+    private int counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result_layout);
 
-        tv_recomend = (TextView) findViewById(R.id.tv_recomend_zp);
-        tv_type_kandidat = (TextView) findViewById(R.id.tv_type_kandidat);
-        btn_back = (Button) findViewById(R.id.btn_back);
+        tv_recomend = findViewById(R.id.tv_recomend_zp);
+        tv_type_kandidat = findViewById(R.id.tv_type_kandidat);
+        btn_back = findViewById(R.id.btn_back);
         reset = findViewById(R.id.reset);
 
         reset.setOnClickListener(this);
@@ -47,7 +51,15 @@ public class Results extends AppCompatActivity implements View.OnClickListener {
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         name = mSettings.getString(APP_PREFERENCES, "no name");
         Log.d(TAG, name);
-        data = dataBaseModule.readFromDB(this, name);
+
+        AsynkClass asynkClass = new AsynkClass();
+        asynkClass.execute();
+
+
+
+    }
+
+    private void afterAsync() {
         countResult();
         allResult = "Кандидат " + name + " " + type + "!";
         tv_type_kandidat.setText(allResult);
@@ -130,4 +142,21 @@ public class Results extends AppCompatActivity implements View.OnClickListener {
                 break;
         }
     }
+
+    class AsynkClass extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            data = dataBaseModule.readFromDB(Results.this, name);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            afterAsync();
+        }
+    }
+
+
 }

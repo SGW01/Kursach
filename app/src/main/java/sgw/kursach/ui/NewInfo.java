@@ -3,6 +3,7 @@ package sgw.kursach.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -40,7 +41,8 @@ public class NewInfo extends AppCompatActivity {
     DataBaseModule dataBaseModule = new DataBaseModule();
     private int index;
     private int rang;
-    private String desicion = " ";
+    private int counter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +58,21 @@ public class NewInfo extends AppCompatActivity {
                 rerange();
             }
         });
-        data = dataBaseModule.readAllFromDB(this);
+
+        buttonHrInterview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToHrInterview();
+            }
+        });
+
+        AsyncGetAll asyncGetAll = new AsyncGetAll();
+        asyncGetAll.execute();
+
+
+    }
+
+    private void setValues() {
         n = data.length;
         Log.d("NewInfo", "n = " + n);
         dataAge = new double[n][n];
@@ -72,13 +88,6 @@ public class NewInfo extends AppCompatActivity {
         fFinal = new Double[n];
         sortedFFinal = new Double[n];
         rerange();
-
-        buttonHrInterview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToHrInterview();
-            }
-        });
     }
 
     private void goToHrInterview() {
@@ -280,9 +289,20 @@ public class NewInfo extends AppCompatActivity {
 
         Arrays.sort(sortedFFinal, Collections.reverseOrder());
 
-        names = dataBaseModule.getSurnames(this);
+        AsyncGetSurnames asyncGetSurnames = new AsyncGetSurnames();
+        asyncGetSurnames.execute();
 
 
+    }
+
+    private void onScreen() {
+        textViewYourRangeNow.setText("Ваш оновлений рейтинг: " + (rang + 1));
+        if (fFinal.length > 0) {
+            dataBaseModule.updateDBFirstStep(this, fFinal);
+        }
+    }
+
+    private void sortANdAdd() {
         for (int i = 0; i < n; i++) {
             if (name.equals(names[i])) {
                 index = i;
@@ -298,7 +318,45 @@ public class NewInfo extends AppCompatActivity {
         onScreen();
     }
 
-    private void onScreen() {
-        textViewYourRangeNow.setText("Ваш оновлений рейтинг: " + (rang + 1));
+    class AsyncGetSurnames extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            names = dataBaseModule.getSurnames(NewInfo.this);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            sortANdAdd();
+
+        }
     }
+
+    class AsyncGetAll extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            data = dataBaseModule.readAllFromDB(NewInfo.this);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            setValues();
+        }
+    }
+
+
 }

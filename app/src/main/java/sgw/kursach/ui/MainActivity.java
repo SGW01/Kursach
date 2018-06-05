@@ -3,6 +3,7 @@ package sgw.kursach.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import sgw.kursach.R;
 import sgw.kursach.database.DataBaseModule;
+
+import static sgw.kursach.ui.Results.NUM_CANDIDATE;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -102,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     SharedPreferences mSettings;
 
     public static final int COUNT_OF_CANDIDATE = 8;
+    private int counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,12 +119,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
-        if (dataBaseModule.getDBSize(this) > COUNT_OF_CANDIDATE) {
-            Intent intent = new Intent(this, HRInterview.class);
-            startActivity(intent);
-        }
+        AsyncGetCount asyncGetCount = new AsyncGetCount();
+        asyncGetCount.execute();
+    }
+
+    private void goToHR() {
+
+        Intent intent = new Intent(this, HRInterview.class);
+        startActivity(intent);
+        finish();
 
     }
+
 
     @Override
     public void onClick(View v) {
@@ -139,13 +149,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 constraintLayoutWorkExp.setVisibility(View.GONE);
                 constraintLayoutInfoAboutCandidate.setVisibility(View.VISIBLE);
                 readWorkInfo();
-                doWriteIntoDB();
-                Intent intent = new Intent(this, Results.class);
-                startActivity(intent);
+                AsyncTaskWriteToDB asyncTaskWriteToDB = new AsyncTaskWriteToDB();
+                asyncTaskWriteToDB.execute();
                 break;
             default:
                 break;
         }
+    }
+
+    private void goToActivityResult() {
+        Intent intent = new Intent(this, Results.class);
+        startActivity(intent);
     }
 
     private void doWriteIntoDB() {
@@ -198,6 +212,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             driver = 0;
         } else {
             driver = 0;
+        }
+    }
+
+    class AsyncTaskWriteToDB extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            doWriteIntoDB();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            goToActivityResult();
+        }
+    }
+
+    class AsyncGetCount extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            counter = dataBaseModule.getDBSize(MainActivity.this);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            if (counter > NUM_CANDIDATE) {
+                goToHR();
+            }
         }
     }
 }
