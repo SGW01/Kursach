@@ -59,8 +59,8 @@ public class TablesPresenterClass {
                 + COLUMN_RESPONSIBILITY + " INTEGER, "
                 + COLUMN_FRUSTRATION + " INTEGER, "
                 + COLUMN_EFFICIENCY + " INTEGER, "
-                + COLUMN_RANGING_AFTER_CV + " INTEGER, "
-                + COLUMN_RANGING_AFTER_HR + " INTEGER, "
+                + COLUMN_RANGING_AFTER_CV + " TEXT, "
+                + COLUMN_RANGING_AFTER_HR + " TEXT, "
                 + IS_APPROPRIATE_AFTER_CV + " INTEGER)";
     }
 

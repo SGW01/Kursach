@@ -4,13 +4,19 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import sgw.kursach.Candidate;
 import sgw.kursach.R;
+import sgw.kursach.adapters.RecyclerAdapter;
 import sgw.kursach.database.DataBaseModule;
 
 public class ResultEnd extends Activity {
@@ -24,7 +30,13 @@ public class ResultEnd extends Activity {
     private double[] fMinus;
     private double[][] sumRange, dataExpectation, dataInitiative, dataMotivation, dataFlexibility, dataResponsibility, dataEfficiency, dataFrustration;
     private String[] names;
+    private ArrayList<Candidate> list = new ArrayList<>();
 
+    @BindView(R.id.recycler)
+    RecyclerView recyclerView;
+
+
+    private RecyclerAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,7 +48,11 @@ public class ResultEnd extends Activity {
 
         AsyncGetAllEnd asyncGetAllEnd = new AsyncGetAllEnd();
         asyncGetAllEnd.execute();
-
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new RecyclerAdapter(list);
+        recyclerView.setAdapter(adapter);
 
     }
 
@@ -189,7 +205,8 @@ public class ResultEnd extends Activity {
     }
 
     private void setInfoIntoRecycler() {
-
+        list = dataBaseModule.readDataForRecycler(ResultEnd.this);
+        adapter.setList(list);
     }
 
     class AsyncGetAllEnd extends AsyncTask<Void, Void, Void> {
@@ -204,6 +221,7 @@ public class ResultEnd extends Activity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             setValues();
+            cancel(true);
 
         }
     }
@@ -211,7 +229,7 @@ public class ResultEnd extends Activity {
     class AsyncGetSurnames extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
-            names = dataBaseModule.getSurnames(ResultEnd.this);
+            dataBaseModule.updateDBSecondStep(ResultEnd.this, fFinal);
             return null;
         }
 
@@ -219,6 +237,9 @@ public class ResultEnd extends Activity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             setInfoIntoRecycler();
+            cancel(true);
         }
     }
+
+
 }

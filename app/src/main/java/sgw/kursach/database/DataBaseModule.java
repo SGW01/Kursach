@@ -6,6 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.util.ArrayList;
+
+import sgw.kursach.Candidate;
+
 
 public class DataBaseModule {
 
@@ -147,12 +151,12 @@ public class DataBaseModule {
 
         ContentValues contentValues = new ContentValues();
         for (int i = 0; i < ffinal.length; i++) {
-            contentValues.put(TablesPresenterClass.Candidate.COLUMN_RANGING_AFTER_CV, ffinal[i]);
-        }
+            contentValues.put(TablesPresenterClass.Candidate.COLUMN_RANGING_AFTER_CV, String.valueOf(ffinal[i]));
 
-        long rowId = database.update(TablesPresenterClass.Candidate.TABLE_NAME, contentValues,
-                null, null);
-        Log.d(TAG, "rowId = " + rowId);
+            long rowId = database.update(TablesPresenterClass.Candidate.TABLE_NAME, contentValues,
+                    TablesPresenterClass.Candidate._ID + " = ? ", new String[]{String.valueOf(i+1)});
+            Log.d(TAG, "rowId = " + rowId);
+        }
         database.close();
     }
 
@@ -182,12 +186,14 @@ public class DataBaseModule {
 
         ContentValues contentValues = new ContentValues();
         for (int i = 0; i < ffinal.length; i++) {
-            contentValues.put(TablesPresenterClass.Candidate.COLUMN_RANGING_AFTER_HR, ffinal[i]);
-        }
+            contentValues.put(TablesPresenterClass.Candidate.COLUMN_RANGING_AFTER_HR, String.valueOf(ffinal[i]));
 
-        long rowId = database.update(TablesPresenterClass.Candidate.TABLE_NAME, contentValues,
-                null, null);
-        Log.d(TAG, "rowId = " + rowId);
+
+            long rowId = database.update(TablesPresenterClass.Candidate.TABLE_NAME, contentValues,
+                    TablesPresenterClass.Candidate._ID + " = ? ", new String[]{String.valueOf(i+1)});
+
+            Log.d(TAG, "rowId = " + rowId);
+        }
         database.close();
     }
 
@@ -225,7 +231,40 @@ public class DataBaseModule {
         database.close();
         return data;
 
+    }
 
+    public ArrayList<Candidate> readDataForRecycler(Context context) {
+        ArrayList<Candidate> list = new ArrayList<>();
+
+        SQLiteDatabase database = new DBSQLiteHelper(context).getReadableDatabase();
+        Cursor cursor;
+        cursor = database.rawQuery("select " +
+                TablesPresenterClass.Candidate.COLUMN_NAME + ", " +
+                TablesPresenterClass.Candidate.COLUMN_SURNAME + ", " +
+                TablesPresenterClass.Candidate.COLUMN_EMAIL + ", " +
+                TablesPresenterClass.Candidate.COLUMN_AGE + ", " +
+                TablesPresenterClass.Candidate.COLUMN_RANGING_AFTER_CV + ", " +
+                TablesPresenterClass.Candidate.COLUMN_RANGING_AFTER_HR + " " +
+                "from " + TablesPresenterClass.Candidate.TABLE_NAME, null);
+        cursor.moveToFirst();
+        count = cursor.getCount();
+        for (int i = 0; i < count; i++) {
+            String name = cursor.getString
+                    (cursor.getColumnIndex(TablesPresenterClass.Candidate.COLUMN_NAME))
+                    + " " + cursor.getString(cursor.getColumnIndex(TablesPresenterClass.Candidate.COLUMN_SURNAME));
+            String email = cursor.getString(cursor.getColumnIndex(TablesPresenterClass.Candidate.COLUMN_EMAIL));
+            int age = cursor.getInt(cursor.getColumnIndex(TablesPresenterClass.Candidate.COLUMN_AGE));
+            String range1 = "range after CV =" +
+                    cursor.getString(cursor.getColumnIndex(TablesPresenterClass.Candidate.COLUMN_RANGING_AFTER_CV));
+            String range2 = "range after HR Interview = " +
+                    cursor.getString(cursor.getColumnIndex(TablesPresenterClass.Candidate.COLUMN_RANGING_AFTER_HR));
+
+            Candidate candidate = new Candidate(name, email, age, range1, range2);
+            list.add(candidate);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return list;
     }
 
 }

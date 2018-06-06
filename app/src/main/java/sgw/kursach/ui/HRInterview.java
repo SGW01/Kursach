@@ -1,6 +1,8 @@
 package sgw.kursach.ui;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -218,7 +220,29 @@ public class HRInterview extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        String surname = candidateSurname.getText().toString();
-        dataBaseModule.updateDB(this, surname,  expectation, initiative, motivation, flexibility, responsibility, frustration, efficiency);
+        AsyncUpdate asyncUpdate = new AsyncUpdate();
+        asyncUpdate.execute();
+    }
+
+    private void goToResutEnd() {
+        Intent intent = new Intent(this, ResultEnd.class);
+        startActivity(intent);
+    }
+
+    class AsyncUpdate extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String surname = candidateSurname.getText().toString();
+            dataBaseModule.updateDB(HRInterview.this, surname, expectation, initiative, motivation, flexibility, responsibility, frustration, efficiency);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            cancel(true);
+            goToResutEnd();
+        }
     }
 }
