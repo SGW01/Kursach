@@ -162,7 +162,8 @@ public class DataBaseModule {
 
     //--------------------------------------------------------------HRInterview
 
-    public void updateDB(Context context, String surname, int expectation, int initiative, int motivation, int flexibility, int responsibility, int frustration, int efficiency) {
+    public void updateDB(Context context, String surname, int expectation, int initiative, int motivation,
+                         int flexibility, int responsibility, int frustration, int efficiency) {
         SQLiteDatabase database = new DBSQLiteHelper(context).getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
